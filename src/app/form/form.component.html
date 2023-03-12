@@ -1,25 +1,68 @@
-<div class="example-container">
+<div class="example-container" fxFlex=" 1 2 calc(15em +20px)">
   <mat-card class="example-card">
     <mat-card-header>
       <mat-card-title>Generator wypowiedzeń umów</mat-card-title>
-      <mat-card-subtitle>Wypełnij wszystkie pola i wybierz rodzaj umowy. </mat-card-subtitle>
+      <mat-card-subtitle>Wypełnij wszystkie pola i wybierz rodzaj umowy.</mat-card-subtitle>
     </mat-card-header>
     <mat-card-content>
       <p>Nie przechowujemy żadnych danych.</p>
     </mat-card-content>
     <mat-card-actions>
-      <mat-form-field appearance="fill">
-        <mat-label>Podaj adres e-mail:</mat-label>
-        <input matInput placeholder="pat@example.com" [formControl]="email" required>
-        <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
-      </mat-form-field>
-      <mat-form-field appearance="fill">
-        <mat-label>Podaj adres e-mail:</mat-label>
-        <input matInput placeholder="pat@example.com" [formControl]="email" required>
-        <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
-      </mat-form-field>
-      <button mat-button>GENERUJ</button>
-
+      <div fxFlex=" 1 2 calc(15em +20px)">
+        <mat-form-field appearance="fill">
+          <mat-label>Podaj imię:</mat-label>
+          <input matInput placeholder="Imię" [formControl]="firstName" required>
+          <mat-error *ngIf="firstName">{{getErrorMessage(firstName)}}</mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>Podaj nazwisko:</mat-label>
+          <input matInput placeholder="Nazwisko" [formControl]="lastName" required>
+          <mat-error *ngIf="lastName.invalid">{{getErrorMessage(lastName)}}</mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>Podaj adres e-mail:</mat-label>
+          <input matInput placeholder="Adres" [formControl]="address" required>
+          <mat-error *ngIf="address.invalid">{{getErrorMessage(address)}}</mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>Podaj adres e-mail:</mat-label>
+          <input matInput placeholder="pat@example.com" [formControl]="cityWithPostalCode" required>
+          <mat-error *ngIf="cityWithPostalCode.invalid">{{getErrorMessage(cityWithPostalCode)}}</mat-error>
+        </mat-form-field>
+<!--        <mat-form-field appearance="fill">-->
+<!--          <mat-label>Podaj adres e-mail:</mat-label>-->
+<!--          <input matInput placeholder="pat@example.com" [formControl]="email" required>-->
+<!--          <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>-->
+<!--        </mat-form-field>-->
+      </div>
+      <div fxFlex=" 1 2 calc(15em +20px)">
+        <mat-form-field appearance="fill">
+          <mat-label>Podaj imię:</mat-label>
+          <input matInput placeholder="Imię" [formControl]="firstName" required>
+          <mat-error *ngIf="firstName">{{getErrorMessage(firstName)}}</mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>Podaj nazwisko:</mat-label>
+          <input matInput placeholder="Nazwisko" [formControl]="lastName" required>
+          <mat-error *ngIf="lastName.invalid">{{getErrorMessage(lastName)}}</mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>Podaj adres e-mail:</mat-label>
+          <input matInput placeholder="Adres" [formControl]="address" required>
+          <mat-error *ngIf="address.invalid">{{getErrorMessage(address)}}</mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>Podaj adres e-mail:</mat-label>
+          <input matInput placeholder="pat@example.com" [formControl]="cityWithPostalCode" required>
+          <mat-error *ngIf="cityWithPostalCode.invalid">{{getErrorMessage(cityWithPostalCode)}}</mat-error>
+        </mat-form-field>
+        <!--        <mat-form-field appearance="fill">-->
+        <!--          <mat-label>Podaj adres e-mail:</mat-label>-->
+        <!--          <input matInput placeholder="pat@example.com" [formControl]="email" required>-->
+        <!--          <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>-->
+        <!--        </mat-form-field>-->
+        <button mat-raised-button>Generuj</button>
+      </div>
     </mat-card-actions>
   </mat-card>
 </div>

@@ -7,13 +7,16 @@ import {FormControl, Validators} from "@angular/forms";
   styleUrls: ['./form.component.css']
 })
 export class FormComponent {
-  email = new FormControl('Imię', [Validators.required]);
+  firstName = new FormControl('', [Validators.required]);
+  lastName = new FormControl('', [Validators.required]);
+  address = new FormControl('', [Validators.required]);
+  cityWithPostalCode = new FormControl('', [Validators.required]);
 
-  getErrorMessage() {
-    if (this.email.hasError('required')) {
+  getErrorMessage(field) {
+    if (field.hasError('required')) {
       return 'Pole jest puste, podaj wartość';
     }
 
-    return this.email.hasError('email') ? 'Niepoprawny adres email' : '';
+    return field.hasError('email') ? 'Niepoprawny adres email' : '';
   }
 }

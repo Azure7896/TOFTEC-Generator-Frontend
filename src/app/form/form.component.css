@@ -1,3 +1,7 @@
+* {
+  margin: 0;
+  padding: 0;
+}
 .example-container {
   position: absolute;
   top: 50%;
@@ -6,10 +10,17 @@
 }
 
 .example-card {
-  padding: 7%;
+  padding: 10%;
+  width: 950px;
 }
+
 
 p {
   color: lawngreen;
+}
+
+mat-form-field {
+  width: 345px;
+
 }
 
