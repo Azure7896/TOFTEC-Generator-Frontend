@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 import {FormControl, Validators} from "@angular/forms";
+import {Termination} from "../termination";
+
 
 @Component({
   selector: 'app-form',
@@ -7,16 +9,20 @@ import {FormControl, Validators} from "@angular/forms";
   styleUrls: ['./form.component.css']
 })
 export class FormComponent {
-  firstName = new FormControl('', [Validators.required]);
-  lastName = new FormControl('', [Validators.required]);
-  address = new FormControl('', [Validators.required]);
-  cityWithPostalCode = new FormControl('', [Validators.required]);
 
-  getErrorMessage(field) {
-    if (field.hasError('required')) {
+  termination: Termination = new Termination();
+
+  getErrorMessage(field): string {
+    if (field.hasError('required' || field.hasError('min') || field.hasError('max'))) {
       return 'Pole jest puste, podaj wartość';
-    }
+      // } else if ((field.hasError('min') || field.hasError('max'))) {
+      //     return 'Błędna ilość znaków w polu. Spróbuj ponownie.';
+      // }
 
-    return field.hasError('email') ? 'Niepoprawny adres email' : '';
+    }
+  }
+
+  onSubmit(): void {
+   console.log(this.termination);
   }
 }
