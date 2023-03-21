@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
-import {FormControl, Validators} from "@angular/forms";
 import {Termination} from "../termination";
+import {TerminationService} from "../termination.service";
 
 
 @Component({
@@ -11,6 +11,12 @@ import {Termination} from "../termination";
 export class FormComponent {
 
   termination: Termination = new Termination();
+
+
+
+  constructor(private terminationService: TerminationService) {
+  }
+
 
   getErrorMessage(field): string {
     if (field.hasError('required' || field.hasError('min') || field.hasError('max'))) {
@@ -23,6 +29,7 @@ export class FormComponent {
   }
 
   onSubmit(): void {
-   console.log(this.termination);
+    console.log(this.termination)
+    this.terminationService.generate(this.termination);
   }
 }
