@@ -1,6 +1,7 @@
 import {Component} from '@angular/core';
 import {Termination} from "../termination";
 import {TerminationService} from "../termination.service";
+import {FormControl, FormGroup, Validators} from "@angular/forms";
 
 
 @Component({
@@ -12,24 +13,32 @@ export class FormComponent {
 
   termination: Termination = new Termination();
 
+  isFieldError;
 
+  profileForm = new FormGroup({
+    firstName: new FormControl('', [Validators.required]),
+    lastName: new FormControl('', [Validators.required]),
+    address: new FormControl('', [Validators.required]),
+    cityWithPostalCode: new FormControl('', [Validators.required]),
+    companyName: new FormControl('', [Validators.required]),
+    companyAddress: new FormControl('', [Validators.required]),
+    companyCityWithPostalCode: new FormControl('', [Validators.required, Validators.minLength(3), Validators.maxLength(20)]),
+  })
 
-  constructor(private terminationService: TerminationService) {
-  }
-
+  constructor(private terminationService: TerminationService) {}
 
   getErrorMessage(field): string {
-    if (field.hasError('required' || field.hasError('min') || field.hasError('max'))) {
+    if (field.hasError('required')) {
       return 'Pole jest puste, podaj wartość';
-      // } else if ((field.hasError('min') || field.hasError('max'))) {
-      //     return 'Błędna ilość znaków w polu. Spróbuj ponownie.';
-      // }
-
     }
   }
 
+  fieldHasError(field){
+    this.isFieldError = !!field.hasError('required');
+  }
+
   onSubmit(): void {
-    console.log(this.termination)
-    this.terminationService.generate(this.termination);
+    console.warn(this.profileForm.value);
+      this.terminationService.generate(this.profileForm);
   }
 }
