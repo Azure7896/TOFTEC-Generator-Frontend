@@ -23,6 +23,7 @@ export class FormComponent {
     companyName: new FormControl('', [Validators.required]),
     companyAddress: new FormControl('', [Validators.required]),
     companyCityWithPostalCode: new FormControl('', [Validators.required, Validators.minLength(3), Validators.maxLength(20)]),
+    date: new FormControl('', [Validators.required]),
   })
 
   constructor(private terminationService: TerminationService) {}

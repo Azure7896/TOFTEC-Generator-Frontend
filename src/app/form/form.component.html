@@ -34,7 +34,7 @@
           </mat-form-field>
           <button type="submit" (click)="onSubmit()" mat-raised-button [disabled]=isFieldError>Generuj</button>
         </div>
-        <div fxFlex=" 1 2 calc(15em +20px)">
+        <div>
           <mat-form-field appearance="fill">
             <mat-label>Nazwa firmy:</mat-label>
             <input matInput placeholder="Nazwa firmy" formControlName="companyName" required>
@@ -49,6 +49,13 @@
             <mat-label>Kod pocztowy i miasto firmy:</mat-label>
             <input matInput placeholder="Kod pocztowy i miasto firmy" formControlName="companyCityWithPostalCode" required>
             <mat-error *ngIf="profileForm.get('companyCityWithPostalCode')">{{fieldHasError(profileForm.get('companyCityWithPostalCode'))}} {{getErrorMessage(profileForm.get('companyCityWithPostalCode'))}}</mat-error>
+          </mat-form-field>
+          <mat-form-field appearance="fill">
+            <mat-label>Choose a date</mat-label>
+            <input matInput [matDatepicker]="picker" formControlName="date">
+            <mat-hint>MM/DD/YYYY</mat-hint>
+            <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
           </mat-form-field>
         </div>
       </mat-card-actions>

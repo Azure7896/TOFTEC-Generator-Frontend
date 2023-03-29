@@ -10,9 +10,13 @@
   transform: translate(-50%, -50%);
 }
 
+mat-card-actions {
+  align-items: normal;
+}
+
 .example-card {
-  padding: 9%;
-  width: 950px;
+  padding: 5%;
+  width: 900px;
 }
 
 
@@ -21,7 +25,7 @@ p {
 }
 
 mat-form-field {
-  width: 345px;
+  width: 350px;
 }
 
 
