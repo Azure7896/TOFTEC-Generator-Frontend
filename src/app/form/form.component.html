@@ -90,15 +90,37 @@
           </div>
           <div class="column">
             <mat-form-field appearance="fill">
-              <mat-label>Wybierz datę</mat-label>
-              <input [matDatepicker]="picker" formControlName="date" matInput required>
+              <mat-label>Wybierz datę dokumentu</mat-label>
+              <input [matDatepicker]="termnationDocumentDatePicker" formControlName="termnationDocumentDate" matInput required>
               <mat-hint>DD.MM.YYYY</mat-hint>
-              <mat-datepicker-toggle [for]="picker" matIconSuffix></mat-datepicker-toggle>
-              <mat-datepicker #picker></mat-datepicker>
+              <mat-datepicker-toggle [for]="termnationDocumentDatePicker" matIconSuffix></mat-datepicker-toggle>
+              <mat-datepicker #termnationDocumentDatePicker></mat-datepicker>
               <mat-error
-                *ngIf="profileForm.get('companyCityWithPostalCode')">{{getErrorMessage(profileForm.get('date'))}}</mat-error>
+                *ngIf="profileForm.get('terminationDocumentDate')">{{getErrorMessage(profileForm.get('terminationDocumentDate'))}}</mat-error>
             </mat-form-field>
           </div>
+
+          <div class="column">
+            <mat-form-field appearance="fill">
+              <mat-label>Wybierz datę zawarcia umowy:</mat-label>
+              <input [matDatepicker]="employmentContractDatePicker" formControlName="employmentContractDate" matInput required>
+              <mat-hint>DD.MM.YYYY</mat-hint>
+              <mat-datepicker-toggle [for]="employmentContractDatePicker" matIconSuffix></mat-datepicker-toggle>
+              <mat-datepicker #employmentContractDatePicker></mat-datepicker>
+              <mat-error
+                *ngIf="profileForm.get('employmentContractDate')">{{getErrorMessage(profileForm.get('employmentContractDate'))}}</mat-error>
+            </mat-form-field>
+          </div>
+          <div class="column">
+          <mat-form-field appearance="fill">
+            <mat-label>Okres wypowiedzenia</mat-label>
+            <mat-select>
+              <mat-option value="twoWeeks">2 tygodnie</mat-option>
+              <mat-option value="oneMonth">1 miesiąc</mat-option>
+              <mat-option value="threeMonths">3 miesiące</mat-option>
+            </mat-select>
+          </mat-form-field>
+            </div>
         </div>
       </mat-card-actions>
       <p [ngStyle]="{'color': responseStatus == '200' ? 'forestgreen' : 'red' }" id="info">{{infoAfterGeneration}}</p>
