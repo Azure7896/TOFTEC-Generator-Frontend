@@ -16,11 +16,6 @@ export class TerminationService {
   }
 
   public generate(form: FormGroup)  {
-    this.http.post("http://localhost:8080/generate", form.value).subscribe(res=>{
-      //here you received the response of your post
-      console.log(res);
-      //you can do asomething, like
-      alert("datos enviados");
-    })
+   return this.http.post("http://localhost:8080/generate", form.value, {observe: 'response', responseType: 'blob'})
   }
 }

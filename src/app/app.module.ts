@@ -13,6 +13,7 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatDatepickerModule} from "@angular/material/datepicker";
 import {HttpClientModule} from "@angular/common/http";
 import {MatNativeDateModule} from "@angular/material/core";
+import {MatDialogModule} from "@angular/material/dialog";
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import {MatNativeDateModule} from "@angular/material/core";
     MatDatepickerModule,
     HttpClientModule,
     FormsModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]
