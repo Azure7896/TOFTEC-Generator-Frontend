@@ -24,6 +24,7 @@ export class FormComponent {
 
   whatIsInstrumentalCase: string;
 
+
   profileForm = new FormGroup({
     firstName: new FormControl('', [Validators.required]),
     lastName: new FormControl('', [Validators.required]),
@@ -34,7 +35,8 @@ export class FormComponent {
     companyName: new FormControl('', [Validators.required]),
     companyAddress: new FormControl('', [Validators.required]),
     companyCityWithPostalCode: new FormControl('', [Validators.required]),
-    date: new FormControl('', [Validators.required]),
+    terminationDocumentDate: new FormControl('', [Validators.required]),
+    employmentContractDate: new FormControl('', [Validators.required]),
   })
 
   constructor(private terminationService: TerminationService, private dateAdapter: DateAdapter<Date>) {
