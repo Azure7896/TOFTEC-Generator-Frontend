@@ -1,8 +1,8 @@
 <div class="example-container">
-  <form [formGroup]="profileForm">
+  <form [formGroup]="terminationForm">
     <mat-card class="example-card">
       <mat-card-header>
-        <mat-card-title>Generator wypowiedzeń umów</mat-card-title>
+        <mat-card-title>Generator wypowiedzeń umów o pracę</mat-card-title>
         <mat-card-subtitle>Wypełnij starannie wszystkie pola i wybierz rodzaj umowy. Dokument .PDF zostanie
           wygenerowany.
           automatycznie.
@@ -18,16 +18,14 @@
             <mat-form-field appearance="fill">
               <mat-label>Podaj imię:</mat-label>
               <input formControlName="firstName" matInput placeholder="Imię" required>
-              <mat-error
-                *ngIf="profileForm.get('firstName')">{{getErrorMessage(profileForm.get('firstName'))}}</mat-error>
+              <mat-error>{{getErrorMessage(terminationForm.get('firstName'))}}</mat-error>
             </mat-form-field>
           </div>
           <div class="column">
             <mat-form-field appearance="fill">
               <mat-label>Podaj nazwisko:</mat-label>
               <input formControlName="lastName" matInput placeholder="Nazwisko" required>
-              <mat-error
-                *ngIf="profileForm.get('lastName')">{{getErrorMessage(profileForm.get('lastName'))}}</mat-error>
+              <mat-error>{{getErrorMessage(terminationForm.get('lastName'))}}</mat-error>
             </mat-form-field>
           </div>
           <div class="column">
@@ -35,8 +33,7 @@
               <mat-label>Imię w formie nadrzędnika:</mat-label>
               <input formControlName="instrumentalCaseFirstName" matInput placeholder="Imię w formie nadrzędnika:"
                      required>
-              <mat-error
-                *ngIf="profileForm.get('instrumentalCaseFirstName')">{{getErrorMessage(profileForm.get('instrumentalCaseFirstName'))}}</mat-error>
+              <mat-error>{{getErrorMessage(terminationForm.get('instrumentalCaseFirstName'))}}</mat-error>
             </mat-form-field>
           </div>
           <div class="column">
@@ -44,39 +41,35 @@
               <mat-label>Nazwisko w formie nadrzędnika:</mat-label>
               <input formControlName="instrumentalCaseLastName" matInput placeholder="Nazwisko w formie nadrzędnika:"
                      required>
-              <mat-error
-                *ngIf="profileForm.get('instrumentalCaseLastName')">{{getErrorMessage(profileForm.get('instrumentalCaseLastName'))}}</mat-error>
+              <mat-error>{{getErrorMessage(terminationForm.get('instrumentalCaseLastName'))}}</mat-error>
             </mat-form-field>
           </div>
           <div class="column">
             <mat-form-field appearance="fill">
               <mat-label>Adres zamieszkania:</mat-label>
               <input [minlength]="" formControlName="address" matInput placeholder="Adres zamieszkania" required>
-              <mat-error *ngIf="profileForm.get('address')"> {{getErrorMessage(profileForm.get('address'))}}</mat-error>
+              <mat-error> {{getErrorMessage(terminationForm.get('address'))}}</mat-error>
             </mat-form-field>
           </div>
           <div class="column">
             <mat-form-field appearance="fill">
               <mat-label>Kod pocztowy i miasto:</mat-label>
               <input formControlName="cityWithPostalCode" matInput placeholder="Kod pocztowy i miasto" required>
-              <mat-error
-                *ngIf="profileForm.get('cityWithPostalCode')">{{getErrorMessage(profileForm.get('cityWithPostalCode'))}}</mat-error>
+              <mat-error>{{getErrorMessage(terminationForm.get('cityWithPostalCode'))}}</mat-error>
             </mat-form-field>
           </div>
           <div class="column">
             <mat-form-field appearance="fill">
               <mat-label>Nazwa firmy:</mat-label>
               <input formControlName="companyName" matInput placeholder="Nazwa firmy" required>
-              <mat-error
-                *ngIf="termination.companyName.invalid">{{getErrorMessage(profileForm.get('companyName'))}}</mat-error>
+              <mat-error>{{getErrorMessage(terminationForm.get('companyName'))}}</mat-error>
             </mat-form-field>
           </div>
           <div class="column">
             <mat-form-field appearance="fill">
               <mat-label>Adres firmy:</mat-label>
               <input formControlName="companyAddress" matInput placeholder="Adres firmy" required>
-              <mat-error
-                *ngIf="profileForm.get('companyAddress')">{{getErrorMessage(profileForm.get('companyAddress'))}}</mat-error>
+              <mat-error>{{getErrorMessage(terminationForm.get('companyAddress'))}}</mat-error>
             </mat-form-field>
           </div>
           <div class="column">
@@ -84,52 +77,54 @@
               <mat-label>Kod pocztowy i miasto firmy:</mat-label>
               <input formControlName="companyCityWithPostalCode" matInput placeholder="Kod pocztowy i miasto firmy"
                      required>
-              <mat-error
-                *ngIf="profileForm.get('companyCityWithPostalCode')">{{getErrorMessage(profileForm.get('companyCityWithPostalCode'))}}</mat-error>
-            </mat-form-field>
-          </div>
-          <div class="column">
-            <mat-form-field appearance="fill">
-              <mat-label>Wybierz datę dokumentu</mat-label>
-              <input [matDatepicker]="termnationDocumentDatePicker" formControlName="termnationDocumentDate" matInput required>
-              <mat-hint>DD.MM.YYYY</mat-hint>
-              <mat-datepicker-toggle [for]="termnationDocumentDatePicker" matIconSuffix></mat-datepicker-toggle>
-              <mat-datepicker #termnationDocumentDatePicker></mat-datepicker>
-              <mat-error
-                *ngIf="profileForm.get('terminationDocumentDate')">{{getErrorMessage(profileForm.get('terminationDocumentDate'))}}</mat-error>
+              <mat-error>{{getErrorMessage(terminationForm.get('companyCityWithPostalCode'))}}</mat-error>
             </mat-form-field>
           </div>
 
           <div class="column">
             <mat-form-field appearance="fill">
-              <mat-label>Wybierz datę zawarcia umowy:</mat-label>
-              <input [matDatepicker]="employmentContractDatePicker" formControlName="employmentContractDate" matInput required>
+              <mat-label>Wybierz datę dokumentu</mat-label>
+              <input [matDatepicker]="terminationDocumentDatePicker" formControlName="terminationDocumentDate" matInput
+                     required>
+              <mat-hint>DD.MM.YYYY</mat-hint>
+              <mat-datepicker-toggle [for]="terminationDocumentDatePicker" matIconSuffix></mat-datepicker-toggle>
+              <mat-datepicker #terminationDocumentDatePicker></mat-datepicker>
+              <mat-error>{{getErrorMessage(terminationForm.get('terminationDocumentDate'))}}</mat-error>
+            </mat-form-field>
+          </div>
+
+          <div class="column">
+            <mat-form-field appearance="fill">
+              <mat-label>Wybierz datę zawarcia umowy</mat-label>
+              <input [matDatepicker]="employmentContractDatePicker" formControlName="employmentContractDate" matInput
+                     required>
               <mat-hint>DD.MM.YYYY</mat-hint>
               <mat-datepicker-toggle [for]="employmentContractDatePicker" matIconSuffix></mat-datepicker-toggle>
               <mat-datepicker #employmentContractDatePicker></mat-datepicker>
-              <mat-error
-                *ngIf="profileForm.get('employmentContractDate')">{{getErrorMessage(profileForm.get('employmentContractDate'))}}</mat-error>
+              <mat-error>{{getErrorMessage(terminationForm.get('employmentContractDate'))}}</mat-error>
             </mat-form-field>
           </div>
           <div class="column">
-          <mat-form-field appearance="fill">
-            <mat-label>Okres wypowiedzenia</mat-label>
-            <mat-select>
-              <mat-option value="twoWeeks">2 tygodnie</mat-option>
-              <mat-option value="oneMonth">1 miesiąc</mat-option>
-              <mat-option value="threeMonths">3 miesiące</mat-option>
-            </mat-select>
-          </mat-form-field>
-            </div>
+            <mat-form-field appearance="fill">
+              <mat-label>Okres wypowiedzenia</mat-label>
+              <mat-select formControlName="terminationPeriod">
+                <mat-option value="twoWeeks">2 tygodnie</mat-option>
+                <mat-option value="oneMonth">1 miesiąc</mat-option>
+                <mat-option value="threeMonths">3 miesiące</mat-option>
+              </mat-select>
+              <mat-error>{{getErrorMessage(terminationForm.get('employmentContractDate'))}}</mat-error>
+            </mat-form-field>
+          </div>
         </div>
       </mat-card-actions>
       <p [ngStyle]="{'color': responseStatus == '200' ? 'forestgreen' : 'red' }" id="info">{{infoAfterGeneration}}</p>
-      <button (click)="generateTermination()" [disabled]=isButtonDisabled [hidden]="isButtonHidden" mat-raised-button
+      <button (click)="generateTermination()" [disabled]="!terminationForm.valid" [hidden]="isButtonHidden"
+              mat-raised-button
               type="submit">Generuj wypowiedzenie umowy
       </button>
     </mat-card>
   </form>
-  <a (click)="viewInformationWhatIsInstrumentalCase()" href="#" id="whatIsInstrumentalCase">Czym jest
+  <a (click)="viewInformationAboutInstrumentalCase()" href="#" id="whatIsInstrumentalCase">Czym jest
     nadrzędnik? {{whatIsInstrumentalCase}}</a>
 </div>
 

@@ -14,8 +14,6 @@ export class FormComponent {
 
   termination: Termination = new Termination();
 
-  isButtonDisabled: boolean = true;
-
   infoAfterGeneration: string;
 
   isButtonHidden: boolean = false;
@@ -25,18 +23,20 @@ export class FormComponent {
   whatIsInstrumentalCase: string;
 
 
-  profileForm = new FormGroup({
-    firstName: new FormControl('', [Validators.required]),
-    lastName: new FormControl('', [Validators.required]),
-    instrumentalCaseFirstName: new FormControl('', [Validators.required]),
-    instrumentalCaseLastName: new FormControl('', [Validators.required]),
-    address: new FormControl('', [Validators.required]),
-    cityWithPostalCode: new FormControl('', [Validators.required]),
-    companyName: new FormControl('', [Validators.required]),
-    companyAddress: new FormControl('', [Validators.required]),
-    companyCityWithPostalCode: new FormControl('', [Validators.required]),
+
+  terminationForm = new FormGroup({
+    firstName: new FormControl('', [Validators.required, Validators.minLength(3), Validators.maxLength(25)]),
+    lastName: new FormControl('', [Validators.required, Validators.minLength(3), Validators.maxLength(25)]),
+    instrumentalCaseFirstName: new FormControl('', [Validators.required, Validators.minLength(3), Validators.maxLength(30)]),
+    instrumentalCaseLastName: new FormControl('', [Validators.required, Validators.minLength(3), Validators.maxLength(30)]),
+    address: new FormControl('', [Validators.required, Validators.minLength(3), Validators.maxLength(30)]),
+    cityWithPostalCode: new FormControl('', [Validators.required, Validators.minLength(3), Validators.maxLength(30)]),
+    companyName: new FormControl('', [Validators.required, Validators.minLength(3), Validators.maxLength(50)]),
+    companyAddress: new FormControl('', [Validators.required, Validators.minLength(3), Validators.maxLength(30)]),
+    companyCityWithPostalCode: new FormControl('', [Validators.required, Validators.minLength(3), Validators.maxLength(30)]),
     terminationDocumentDate: new FormControl('', [Validators.required]),
     employmentContractDate: new FormControl('', [Validators.required]),
+    terminationPeriod: new FormControl('', [Validators.required]),
   })
 
   constructor(private terminationService: TerminationService, private dateAdapter: DateAdapter<Date>) {
@@ -45,18 +45,16 @@ export class FormComponent {
 
   getErrorMessage(field): string {
     if (field.hasError('required')) {
-      this.isButtonDisabled = true;
       return 'Pole jest puste, podaj wartość';
     } else {
-      this.isButtonDisabled = false;
-      return '';
+      return 'Niepoprawna ilość znaków'
     }
   }
 
   generateTermination(): void {
-    console.warn(this.profileForm.value);
-    this.terminationService.generate(this.profileForm).subscribe(response => {
-      let fileName = 'Wypowiedzenie' + this.profileForm.get('firstName').value + this.profileForm.get('lastName').value;
+    console.warn(this.terminationForm.value);
+    this.terminationService.generate(this.terminationForm).subscribe(response => {
+      let fileName = 'Wypowiedzenie' + this.terminationForm.get('firstName').value + this.terminationForm.get('lastName').value;
       let blob: Blob = response.body as Blob;
       let a = document.createElement('a');
       a.download = fileName;
@@ -79,7 +77,7 @@ export class FormComponent {
     }, 1000);
   }
 
-  viewInformationWhatIsInstrumentalCase() {
+  viewInformationAboutInstrumentalCase() {
     this.whatIsInstrumentalCase = "Pomiędzy kim jest rozwiązywana umowa? Na przykład pomiędzy Janem Kowalskim."
   }
 }
