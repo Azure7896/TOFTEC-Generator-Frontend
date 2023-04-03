@@ -6,7 +6,7 @@ Used technologies:
 
   - Angular with Material UI
 
-User applications:
+Used applications:
 
   - Webstorm
   - Google Chrome
@@ -14,6 +14,9 @@ User applications:
 Application is deployed on AWS Amazon S3.
 
 ![image](https://user-images.githubusercontent.com/95986791/229386117-36caee25-f4af-48ff-8551-45d565f34437.png)
+
+![image](https://user-images.githubusercontent.com/95986791/229641954-24df9c4d-9e32-403c-bb58-45259891e4d2.png)
+
 
 
   
