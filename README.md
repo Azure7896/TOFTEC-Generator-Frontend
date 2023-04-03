@@ -4,16 +4,14 @@ TOFTECT-Generator is "termination of the employment contract" generator in .pdf 
 
 Used technologies:
 
-  - Java 11
-  - Spring Boot 2.7.6 
-  - iText 7.2.5
+  - Angular with Material UI
 
 User applications:
 
-  - IntelliJ IDEA
-  - Postman
+  - Webstorm
+  - Google Chrome
   
-Application is deployment on AWS Beanstalk with Tomcat.
+Application is deployment on AWS Amazon S3.
 
 ![image](https://user-images.githubusercontent.com/95986791/229386117-36caee25-f4af-48ff-8551-45d565f34437.png)
 
