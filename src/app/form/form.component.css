@@ -1,35 +1,23 @@
-* {
-  margin: 0;
-  padding: 0;
-}
-
-.example-container {
+.container {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  max-height: 100%;
 }
 
 mat-card-content p {
-  color: limegreen;
+  color: #259825;
 }
 
-
-form {
-  width: 100%;
-  position: relative;
-  margin: 30px auto 0 auto;
+.column {
+  margin-right: 30px;
 }
 
 .row {
   width: 100%;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  align-content: normal;
-}
-
-mat-form-field {
-  margin: 5px;
 }
 
 .example-card {
@@ -37,7 +25,12 @@ mat-form-field {
 }
 
 .mat-mdc-form-field {
-  width: 95%;
+  width: 100%;
+}
+
+a {
+  text-decoration: none;
+  color: darkred;
 }
 
 #info {
@@ -45,9 +38,12 @@ mat-form-field {
   margin-top: 20px;
 }
 
-a {
-  text-decoration: none;
-  color: darkred;
+
+#latestUpdate {
+  text-align: center;
+  margin-top: 30px;
+  text-shadow: 0px 0px 24px rgba(66, 68, 90, 1);
 }
+
 
 

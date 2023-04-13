@@ -9,13 +9,11 @@ import {FormGroup} from "@angular/forms";
 
 export class TerminationService {
 
-  generateUrl: string;
-
   constructor(private http: HttpClient) {
-    this.generateUrl='http://localhost:8080/generate';
+
   }
 
   public generate(form: FormGroup)  {
-   return this.http.post("http://localhost:8080/generate", form.value, {observe: 'response', responseType: 'blob'})
+   return this.http.post("http://toftecgeneratorbackend-env.eba-fsxwwidj.eu-north-1.elasticbeanstalk.com/generate", form.value, {observe: 'response', responseType: 'blob'})
   }
 }

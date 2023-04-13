@@ -1,4 +1,4 @@
-<div class="example-container">
+<div class="container">
   <form [formGroup]="terminationForm">
     <mat-card class="example-card">
       <mat-card-header>
@@ -85,11 +85,11 @@
             <mat-form-field appearance="fill">
               <mat-label>Wybierz datę dokumentu</mat-label>
               <input [matDatepicker]="terminationDocumentDatePicker" formControlName="terminationDocumentDate" matInput
-                     required>
+                     required readonly>
               <mat-hint>DD.MM.YYYY</mat-hint>
               <mat-datepicker-toggle [for]="terminationDocumentDatePicker" matIconSuffix></mat-datepicker-toggle>
               <mat-datepicker #terminationDocumentDatePicker></mat-datepicker>
-              <mat-error>{{getErrorMessage(terminationForm.get('terminationDocumentDate'))}}</mat-error>
+              <mat-error>{{getDatePickerErrorMessage(terminationForm.get('terminationDocumentDate'))}}</mat-error>
             </mat-form-field>
           </div>
 
@@ -97,11 +97,11 @@
             <mat-form-field appearance="fill">
               <mat-label>Wybierz datę zawarcia umowy</mat-label>
               <input [matDatepicker]="employmentContractDatePicker" formControlName="employmentContractDate" matInput
-                     required>
+                     required readonly>
               <mat-hint>DD.MM.YYYY</mat-hint>
               <mat-datepicker-toggle [for]="employmentContractDatePicker" matIconSuffix></mat-datepicker-toggle>
               <mat-datepicker #employmentContractDatePicker></mat-datepicker>
-              <mat-error>{{getErrorMessage(terminationForm.get('employmentContractDate'))}}</mat-error>
+              <mat-error>{{getDatePickerErrorMessage(terminationForm.get('employmentContractDate'))}}</mat-error>
             </mat-form-field>
           </div>
           <div class="column">
@@ -126,5 +126,6 @@
   </form>
   <a (click)="viewInformationAboutInstrumentalCase()" href="#" id="whatIsInstrumentalCase">Czym jest
     nadrzędnik? {{whatIsInstrumentalCase}}</a>
+  <p id="latestUpdate">Latest update: 13.04.2023</p>
 </div>
 

@@ -34,8 +34,8 @@ export class FormComponent {
     companyName: new FormControl('', [Validators.required, Validators.minLength(3), Validators.maxLength(50)]),
     companyAddress: new FormControl('', [Validators.required, Validators.minLength(3), Validators.maxLength(30)]),
     companyCityWithPostalCode: new FormControl('', [Validators.required, Validators.minLength(3), Validators.maxLength(30)]),
-    terminationDocumentDate: new FormControl('', [Validators.required]),
-    employmentContractDate: new FormControl('', [Validators.required]),
+    terminationDocumentDate: new FormControl('', [Validators.required, Validators.minLength(9), Validators.maxLength(9)]),
+    employmentContractDate: new FormControl('', [Validators.required, Validators.minLength(9), Validators.maxLength(9)]),
     terminationPeriod: new FormControl('', [Validators.required]),
   })
 
@@ -48,6 +48,12 @@ export class FormComponent {
       return 'Pole jest puste, podaj wartość';
     } else {
       return 'Niepoprawna ilość znaków'
+    }
+  }
+
+  getDatePickerErrorMessage(field): string {
+    if(field.hasError) {
+      return 'Wybierz datę za pomocą kalendarza';
     }
   }
 
