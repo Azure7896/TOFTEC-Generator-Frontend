@@ -2,7 +2,7 @@
 
 TOFTECT-Generator is "termination of the employment contract" generator in .pdf extension. 
 
-The application support responsive view on mobile devices. 
+The application supports a responsive view on mobile devices. 
 
 Used technologies:
 
