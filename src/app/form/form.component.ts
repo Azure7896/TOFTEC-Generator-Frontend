@@ -1,8 +1,8 @@
 import {Component} from '@angular/core';
-import {Termination} from "../termination";
 import {TerminationService} from "../termination.service";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {DateAdapter} from "@angular/material/core";
+import {Title} from "@angular/platform-browser";
 
 
 @Component({
@@ -12,8 +12,6 @@ import {DateAdapter} from "@angular/material/core";
 })
 export class FormComponent {
 
-  termination: Termination = new Termination();
-
   infoAfterGeneration: string;
 
   isButtonHidden: boolean = false;
@@ -21,8 +19,6 @@ export class FormComponent {
   responseStatus;
 
   whatIsInstrumentalCase: string;
-
-
 
   terminationForm = new FormGroup({
     firstName: new FormControl('', [Validators.required, Validators.minLength(3), Validators.maxLength(25)]),
@@ -39,7 +35,8 @@ export class FormComponent {
     terminationPeriod: new FormControl('', [Validators.required]),
   })
 
-  constructor(private terminationService: TerminationService, private dateAdapter: DateAdapter<Date>) {
+  constructor(private terminationService: TerminationService, private dateAdapter: DateAdapter<Date>, private titleService:Title) {
+    this.titleService.setTitle("Generator wypowiedzeń umów o pracę");
     this.dateAdapter.setLocale('pl-PL');
   }
 
@@ -58,7 +55,6 @@ export class FormComponent {
   }
 
   generateTermination(): void {
-    console.warn(this.terminationForm.value);
     this.terminationService.generate(this.terminationForm).subscribe(response => {
       let fileName = 'Wypowiedzenie' + this.terminationForm.get('firstName').value + this.terminationForm.get('lastName').value;
       let blob: Blob = response.body as Blob;
@@ -86,4 +82,5 @@ export class FormComponent {
   viewInformationAboutInstrumentalCase() {
     this.whatIsInstrumentalCase = "Pomiędzy kim jest rozwiązywana umowa? Na przykład pomiędzy Janem Kowalskim."
   }
+
 }
