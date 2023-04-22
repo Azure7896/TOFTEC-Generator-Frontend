@@ -6,7 +6,9 @@ The application supports a responsive view on mobile devices.
 
 Used technologies:
 
-  - Angular with Material UI
+  - Angular
+    - Material UI
+    - CKEditor
 
 Used applications:
 
