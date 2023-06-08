@@ -13,7 +13,7 @@ Used applications:
   - WebStorm
   - Google Chrome
   
-Application is deployed on AWS Amazon S3.
+Application was deployed on AWS Amazon S3.
 
 ![image](https://user-images.githubusercontent.com/95986791/232109665-f6cd9123-655c-4908-9f03-12052bc49aae.png)
 
